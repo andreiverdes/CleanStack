@@ -1,0 +1,1 @@
+include ':ui-android', ':data', ':domain', ':presentation', ':ui-ios'
