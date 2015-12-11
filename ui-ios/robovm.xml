@@ -9,4 +9,22 @@
             <directory>resources</directory>
         </resource>
     </resources>
+    <forceLinkClasses>
+        <pattern>net.maxcode.trainingday.stackoverflow.**</pattern>
+        <pattern>java.util.logging.**</pattern>
+        <pattern>com.android.okhttp.HttpHandler</pattern>
+        <pattern>com.android.okhttp.HttpsHandler</pattern>
+        <pattern>com.android.org.conscrypt.**</pattern>
+        <pattern>com.android.org.bouncycastle.jce.provider.BouncyCastleProvider</pattern>
+        <pattern>com.android.org.bouncycastle.jcajce.provider.keystore.BC$Mappings</pattern>
+        <pattern>com.android.org.bouncycastle.jcajce.provider.keystore.bc.BcKeyStoreSpi</pattern>
+        <pattern>com.android.org.bouncycastle.jcajce.provider.keystore.bc.BcKeyStoreSpi$Std</pattern>
+        <pattern>com.android.org.bouncycastle.jce.provider.PKIXCertPathValidatorSpi</pattern>
+        <pattern>com.android.org.bouncycastle.jce.provider.RFC3280CertPathUtilities</pattern>
+        <pattern>com.android.org.bouncycastle.crypto.digests.AndroidDigestFactoryOpenSSL</pattern>
+        <pattern>org.apache.harmony.security.provider.**</pattern>
+        <!--<pattern>android.os.Build</pattern>-->
+        <!--<pattern>java.util.Optional</pattern>-->
+        <!--<pattern>android.net.TrafficStats</pattern>-->
+    </forceLinkClasses>
 </config>
