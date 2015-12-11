@@ -1,14 +1,14 @@
-package net.maxcode.trainingday.stackoverflow.data.model;
+package net.maxcode.trainingday.stackoverflow.domain.model;
 
 import java.util.List;
 
 /**
- * Created by andreiverdes on 12/10/15.
+ * Created by andrei on 11/12/15.
  */
-public class QuestionEntity implements IEntity {
+public class DomainQuestion {
 
     private List<String> tags;
-    private OwnerEntity owner;
+    private DomainOwner owner;
     private boolean isAnswered;
     private int upVoteCount;
     private String title;
@@ -22,11 +22,11 @@ public class QuestionEntity implements IEntity {
         tags = pTags;
     }
 
-    public OwnerEntity getOwner() {
+    public DomainOwner getOwner() {
         return owner;
     }
 
-    public void setOwner(OwnerEntity pOwner) {
+    public void setOwner(DomainOwner pOwner) {
         owner = pOwner;
     }
 

@@ -1,6 +1,6 @@
 package net.maxcode.trainingday.stackoverflow.data.store;
 
-import net.maxcode.trainingday.stackoverflow.data.model.QuestionEntity;
+import net.maxcode.trainingday.stackoverflow.data.model.DataQuestion;
 
 import java.util.List;
 
@@ -9,6 +9,6 @@ import java.util.List;
  */
 public interface IStackOverflowDataStore {
 
-    void getQuestions(IStoreCallback<List<QuestionEntity>> pQuestionsCallback);
+    void getQuestions(IStoreCallback<List<DataQuestion>> pQuestionsCallback);
 
 }

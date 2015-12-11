@@ -4,7 +4,7 @@ import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import net.maxcode.trainingday.stackoverflow.data.model.QuestionEntity;
+import net.maxcode.trainingday.stackoverflow.data.model.DataQuestion;
 import net.maxcode.trainingday.stackoverflow.data.store.IStackOverflowDataStore;
 import net.maxcode.trainingday.stackoverflow.data.store.IStoreCallback;
 
@@ -24,7 +24,7 @@ public class StackOverflowWebService implements IStackOverflowDataStore {
 
     private static final StackOverflowWebService instance = new StackOverflowWebService();
 
-    public static StackOverflowWebService instance(){
+    public static StackOverflowWebService getInstance(){
         return instance;
     }
 
@@ -39,9 +39,9 @@ public class StackOverflowWebService implements IStackOverflowDataStore {
         this.mStackOverflowServiceAPI = retrofit.create(IStackOverflowServiceAPI.class);
     }
 
-    @Override public void getQuestions(final IStoreCallback<List<QuestionEntity>> pQuestionsCallback) {
-        this.mStackOverflowServiceAPI.getQuestions().enqueue(new Callback<ApiResponse<QuestionEntity>>() {
-            @Override public void onResponse(Response<ApiResponse<QuestionEntity>> response, Retrofit retrofit) {
+    @Override public void getQuestions(final IStoreCallback<List<DataQuestion>> pQuestionsCallback) {
+        this.mStackOverflowServiceAPI.getQuestions().enqueue(new Callback<ApiResponse<DataQuestion>>() {
+            @Override public void onResponse(Response<ApiResponse<DataQuestion>> response, Retrofit retrofit) {
                 pQuestionsCallback.onCallback(response.body().getItems());
             }
 

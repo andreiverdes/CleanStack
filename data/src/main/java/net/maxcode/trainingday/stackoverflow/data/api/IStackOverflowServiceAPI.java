@@ -1,7 +1,6 @@
 package net.maxcode.trainingday.stackoverflow.data.api;
 
-import net.maxcode.trainingday.stackoverflow.data.api.ApiResponse;
-import net.maxcode.trainingday.stackoverflow.data.model.QuestionEntity;
+import net.maxcode.trainingday.stackoverflow.data.model.DataQuestion;
 
 import retrofit.Call;
 import retrofit.http.GET;
@@ -13,6 +12,6 @@ public interface IStackOverflowServiceAPI {
     String ROOT_URL = "https://api.stackexchange.com/2.2";
 
     @GET("questions?order=desc&sort=votes&tagged=android&site=stackoverflow")
-    Call<ApiResponse<QuestionEntity>> getQuestions();
+    Call<ApiResponse<DataQuestion>> getQuestions();
 
 }

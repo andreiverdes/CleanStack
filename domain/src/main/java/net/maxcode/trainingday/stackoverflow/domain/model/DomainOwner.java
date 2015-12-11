@@ -1,9 +1,9 @@
-package net.maxcode.trainingday.stackoverflow.data.model;
+package net.maxcode.trainingday.stackoverflow.domain.model;
 
 /**
- * Created by andreiverdes on 12/10/15.
+ * Created by andrei on 11/12/15.
  */
-public class OwnerEntity {
+public class DomainOwner {
 
     private String displayName;
 
@@ -14,4 +14,5 @@ public class OwnerEntity {
     public void setDisplayName(String pDisplayName) {
         displayName = pDisplayName;
     }
+
 }
