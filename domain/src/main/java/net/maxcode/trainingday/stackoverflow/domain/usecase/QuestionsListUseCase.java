@@ -15,15 +15,18 @@ import java.util.List;
  */
 public class QuestionsListUseCase extends AbstractUseCase<List<DomainQuestion>> {
 
+    private QuestionMapper mQuestionMapper;
+
     public QuestionsListUseCase(IStackOverflowDataStore pStackOverflowDataStore) {
         super(pStackOverflowDataStore);
+        this.mQuestionMapper = QuestionMapper.getInstance();
     }
 
     @Override public void execute(final IUseCaseCallback<List<DomainQuestion>> pUseCaseCallback) {
         getStackOverflowDataStore().getQuestions(new IStoreCallback<List<DataQuestion>>() {
             @Override public void onCallback(List<DataQuestion> pObject) {
                 if(pObject != null){
-                    List<DomainQuestion> domainQuestions = QuestionMapper.getInstance().transform(pObject);
+                    List<DomainQuestion> domainQuestions = mQuestionMapper.transform(pObject);
                     pUseCaseCallback.onSuccess(domainQuestions);
                 } else {
                     pUseCaseCallback.onError(new QuestionFetchException());
