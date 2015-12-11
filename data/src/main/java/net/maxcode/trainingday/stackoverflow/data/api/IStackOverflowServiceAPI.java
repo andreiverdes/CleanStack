@@ -1,5 +1,6 @@
-package net.maxcode.trainingday.stackoverflow.data;
+package net.maxcode.trainingday.stackoverflow.data.api;
 
+import net.maxcode.trainingday.stackoverflow.data.api.ApiResponse;
 import net.maxcode.trainingday.stackoverflow.data.model.QuestionEntity;
 
 import retrofit.Call;
