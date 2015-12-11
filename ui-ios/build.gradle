@@ -1,20 +1,37 @@
-apply plugin: 'java'
-
-//noinspection GroovyUnusedAssignment
-sourceCompatibility = 1.7
-//noinspection GroovyUnusedAssignment
-targetCompatibility = 1.7
-
-configurations {
-    provided
-}
-
-sourceSets {
-    main {
-        compileClasspath += configurations.provided
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+    }
+    dependencies {
+        classpath 'org.robovm:robovm-gradle-plugin:1.11.0'
     }
 }
 
+apply plugin: 'java'
+apply plugin: 'robovm'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+}
+
+ext {
+    roboVMVersion = "1.11.0"
+}
+
+robovm {
+}
+
 dependencies {
+    compile "org.robovm:robovm-rt:${roboVMVersion}"
+    compile "org.robovm:robovm-cocoatouch:${roboVMVersion}"
+    testCompile "junit:junit:4.12"
     compile project(':presentation')
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.8'
 }
