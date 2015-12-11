@@ -1,4 +1,4 @@
-package net.maxcode.trainingday.cleanstackoverflow.ui.ios;
+package net.maxcode.trainingday.cleanstackoverflow.android;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

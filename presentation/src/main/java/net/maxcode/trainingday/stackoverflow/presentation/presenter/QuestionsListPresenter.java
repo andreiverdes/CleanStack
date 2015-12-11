@@ -5,7 +5,7 @@ import net.maxcode.trainingday.stackoverflow.domain.model.DomainQuestion;
 import net.maxcode.trainingday.stackoverflow.domain.usecase.QuestionsListUseCase;
 import net.maxcode.trainingday.stackoverflow.presentation.QuestionMapper;
 import net.maxcode.trainingday.stackoverflow.presentation.model.PresentationQuestion;
-import net.maxcode.trainingday.stackoverflow.presentation.view.IUserListView;
+import net.maxcode.trainingday.stackoverflow.presentation.view.IQuestionsListView;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class QuestionsListPresenter implements IPresenter {
 
-    private IUserListView mUserListView;
+    private IQuestionsListView mUserListView;
     private QuestionsListUseCase mQuestionsListUseCase;
     private QuestionMapper mQuestionMapper;
 
@@ -23,7 +23,7 @@ public class QuestionsListPresenter implements IPresenter {
         this.mQuestionMapper = QuestionMapper.getInstance();
     }
 
-    public void setView(IUserListView pView) {
+    public void setView(IQuestionsListView pView) {
         this.mUserListView = pView;
     }
 
@@ -43,6 +43,7 @@ public class QuestionsListPresenter implements IPresenter {
     private void getQuestionsList() {
         this.mQuestionsListUseCase.execute(new IUseCaseCallback<List<DomainQuestion>>() {
             @Override public void onSuccess(List<DomainQuestion> pObject) {
+                mUserListView.hideLoading();
                 List<PresentationQuestion> presentationQuestions = mQuestionMapper.transform(pObject);
                 mUserListView.renderQuestionsList(presentationQuestions);
             }
@@ -60,6 +61,7 @@ public class QuestionsListPresenter implements IPresenter {
     @Override public void onPause() {}
 
     @Override public void onDestroy() {
+        this.mUserListView.hideLoading();
         this.mUserListView = null;
         this.mQuestionsListUseCase = null;
     }

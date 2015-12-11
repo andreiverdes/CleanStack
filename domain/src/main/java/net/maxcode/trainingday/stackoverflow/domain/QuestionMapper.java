@@ -36,6 +36,7 @@ public class QuestionMapper {
         DomainOwner domainOwner = this.transform(pDataQuestion.getOwner());
 
         domainQuestion.setAnswered(pDataQuestion.isAnswered());
+        domainQuestion.setTitle(pDataQuestion.getTitle());
         domainQuestion.setBody(pDataQuestion.getBody());
         domainQuestion.setOwner(domainOwner);
         domainQuestion.setTags(pDataQuestion.getTags());

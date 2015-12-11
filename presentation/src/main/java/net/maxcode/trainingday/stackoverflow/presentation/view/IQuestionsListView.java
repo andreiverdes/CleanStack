@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by andrei on 11/12/15.
  */
-public interface IUserListView extends ILoadingView {
+public interface IQuestionsListView extends ILoadingView {
 
     public void renderQuestionsList(List<PresentationQuestion> pQuestions);
 

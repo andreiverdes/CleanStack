@@ -36,6 +36,7 @@ public class QuestionMapper {
         PresentationOwner presentationOwner = this.transform(pDomainQuestion.getOwner());
 
         presentationQuestion.setAnswered(pDomainQuestion.isAnswered());
+        presentationQuestion.setTitle(pDomainQuestion.getTitle());
         presentationQuestion.setBody(pDomainQuestion.getBody());
         presentationQuestion.setOwner(presentationOwner);
         presentationQuestion.setTags(pDomainQuestion.getTags());
